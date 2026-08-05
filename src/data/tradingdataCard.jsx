@@ -1,5 +1,5 @@
 
-import pic1 from "../assets/img/pan.jpg";
+import pic1 from "../assets/img/Pan.jpg";
 import pic2 from "../assets/img/phaselight.avif";
 import pic3 from "../assets/img/AV.webp";
 import pic4 from "../assets/img/FICO.webp";
