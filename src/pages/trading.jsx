@@ -1,4 +1,4 @@
-import TradingCard from "../components/TradingCard";
+import TradingCard from "../components/tradingCard";
 import tradingCard from "../data/tradingdataCard";
 
 const Trading = () => {
