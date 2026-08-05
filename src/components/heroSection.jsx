@@ -35,21 +35,6 @@ const slides = [
   },
 ];
 
-const HeroSection = () => {
-  const settings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 4000,
-  speed: 900,
-  arrows: true,
-  nextArrow: <NextArrow />,
-  prevArrow: <PrevArrow />,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  fade: true,
-  pauseOnHover: false,
-};
 function NextArrow({ onClick }) {
   return (
     <button
@@ -70,6 +55,22 @@ function PrevArrow({ onClick }) {
     </button>
   );
 }
+
+const HeroSection = () => {
+  const settings = {
+  dots: true,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  speed: 900,
+  arrows: true,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  fade: true,
+  pauseOnHover: false,
+};
  return (
   <div className="w-full overflow-hidden">
     <Slider {...settings}>

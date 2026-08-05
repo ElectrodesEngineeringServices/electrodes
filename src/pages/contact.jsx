@@ -20,11 +20,14 @@ const Contact = () => {
 
   
 
- const handleSubmit = () => {
+ const handleSubmit = (e) => {
+    e.preventDefault();
     Swal.fire({
         icon: "success",
         title: "Sending...",
         text: "Your message is being sent.",
+    }).then(() => {
+        e.target.submit();
     });
 };
 
@@ -40,7 +43,7 @@ const Contact = () => {
 >
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_subject" value="New Contact Form" />
-    <input type="hidden" name="_next" value="http://localhost:5173/" />
+    <input type="hidden" name="_next" value="https://electrodeseng.com" />
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 

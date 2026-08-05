@@ -16,11 +16,11 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
 
     const DrawerComponents = [
         { id: 1, name: "Home", path: '/' },
-        { id: 2, name: "Mechanical", path: '/Mechanical' },
-        { id: 3, name: "Electrical", path: '/Electrical' },
-        { id: 4, name: "Plumbing", path: '/plumbing' },
-        { id: 5, name: "Trading", path: '/Trading' },
-        { id: 6, name: "Contact", path: '/Contact' }
+        { id: 2, name: "About Us", path: '/about' },
+        { id: 3, name: "Mechanical", path: '/mechanical' },
+        { id: 4, name: "Electrical", path: '/electrical' },
+        { id: 5, name: "Trading", path: '/trading' },
+        { id: 6, name: "Contact", path: '/contact' }
     ];
 
     const handleButtonClick = (id, path) => {
