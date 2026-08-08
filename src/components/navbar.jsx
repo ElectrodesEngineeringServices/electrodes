@@ -44,35 +44,35 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
           {/* Logo + Company Name */}
-          <Link to="/" className="flex items-center gap-2">
+         <Link to="/" className="flex items-center gap-2">
 
-            <img
-              src={logo}
-              alt="Logo"
-              className="h-14 w-auto object-contain"
-            />
+ <img
+  src={logo}
+  alt="Logo"
+  className="h-10 sm:h-12 md:h-14 w-auto"
+/>
 
-            <div className="leading-tight">
+  <div className="flex flex-col">
 
-              <h2
-                className={`font-bold text-2xl ${
-                  isHome ? "text-white" : "text-gray-900"
-                }`}
-              >
-                Electrodes Engineering Services
-              </h2>
-
-             <p
-  className={`text-lg font-bold uppercase tracking-[4px] text-center ${
-    isHome ? "text-gray-200" : "text-gray-600"
+    <h2
+  className={`font-bold text-base sm:text-lg md:text-2xl leading-tight whitespace-nowrap ${
+    isHome ? "text-white" : "text-gray-900"
   }`}
 >
-  (Pvt.) Ltd
-</p>
+  Electrodes Engineering Services
+</h2>
 
-            </div>
+    <p
+      className={`text-sm md:text-lg font-bold uppercase tracking-[4px] ${
+        isHome ? "text-gray-200" : "text-gray-600"
+      }`}
+    >
+      (Pvt.) Ltd
+    </p>
 
-          </Link>
+  </div>
+
+</Link>
 
           {/* Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-10">

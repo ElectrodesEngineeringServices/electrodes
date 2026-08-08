@@ -69,38 +69,34 @@ prevArrow: <PrevArrow />,
   pauseOnHover: false,
 
   responsive: [
-    {
-      breakpoint: 1280,
-      settings: {
-        slidesToShow: 4,
-      },
+  {
+    breakpoint: 1200,
+    settings: {
+      slidesToShow: 3,
     },
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-      },
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 2,
     },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-      },
+  },
+  {
+    breakpoint: 480,
+    settings: {
+      slidesToShow: 1,
+      arrows: false,
+      centerMode: false,
     },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
-  ],
+  },
+],
 };
 
   return (
 
     <section className="pt-24 pb-0 bg-white">
 
-     <div className="max-w-7xl mx-auto px-12 relative">
+     <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative">
 
         <h2 className="text-4xl font-bold text-center text-secondary mb-3">
   Why Choose Electrodes Engineering?
@@ -117,15 +113,15 @@ prevArrow: <PrevArrow />,
 
             <div key={index} className="px-4">
 
-             <div className="rounded-3xl overflow-hidden shadow-lg bg-white h-[420px] flex flex-col">
+             <div className="rounded-3xl overflow-hidden shadow-lg bg-white h-[340px] md:h-[420px] flex flex-col">
 
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-64 object-cover object-center"
+                 className="w-full h-52 md:h-64 object-cover object-center"
                 />
 <div className="flex-1 flex items-center justify-center p-5">
-  <h3 className="text-center text-2xl font-bold leading-snug min-h-[70px]">
+ <h3 className="text-center text-lg md:text-2xl font-bold leading-snug min-h-[60px]">
     {item.title}
   </h3>
 </div>
