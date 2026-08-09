@@ -55,25 +55,24 @@ const Navbar = () => {
     className="h-11 w-auto lg:h-14 object-contain flex-shrink-0"
   />
 
-  <div className="leading-tight min-w-0">
+  <div className="leading-tight -ml-6">
+  <h2
+    className={`font-bold text-lg lg:text-2xl whitespace-nowrap ${
+      isHome ? "text-white" : "text-gray-900"
+    }`}
+  >
+    Electrodes Engineering Services
+  </h2>
 
-    <h2
-      className={`font-bold text-lg lg:text-2xl whitespace-nowrap ${
-        isHome ? "text-white" : "text-gray-900"
-      }`}
-    >
-      Electrodes Engineering Services
-    </h2>
+  <p
+    className={`text-sm lg:text-lg font-bold uppercase tracking-[3px] lg:tracking-[4px] text-left ${
+      isHome ? "text-gray-200" : "text-gray-600"
+    }`}
+  >
+    (Pvt.) Ltd
+  </p>
 
-    <p
-      className={`text-sm lg:text-lg font-bold uppercase tracking-[3px] lg:tracking-[4px] text-left ${
-        isHome ? "text-gray-200" : "text-gray-600"
-      }`}
-    >
-      (Pvt.) Ltd
-    </p>
-
-  </div>
+</div>
 </Link>
 
           {/* Desktop Menu */}
