@@ -127,11 +127,10 @@ const Navbar = () => {
 
         </div>
       </nav>
-
-      <Drawer
-        isDrawerOpen={isDrawerOpen}
-        closeDrawer={() => setIsDrawerOpen(false)}
-      />
+<Drawer
+  isDrawerOpen={isDrawerOpen}
+  closeDrawer={() => setIsDrawerOpen(false)}
+/>
     </>
   );
 };
