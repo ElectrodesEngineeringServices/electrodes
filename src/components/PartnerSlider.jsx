@@ -60,43 +60,45 @@ const PartnerSlider = () => {
   autoplay: true,
   autoplaySpeed: 2500,
   speed: 1000,
+
   arrows: true,
-nextArrow: <NextArrow />,
-prevArrow: <PrevArrow />,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+
   slidesToShow: 4,
   slidesToScroll: 1,
 
   pauseOnHover: false,
 
   responsive: [
-  {
-    breakpoint: 1200,
-    settings: {
-      slidesToShow: 3,
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
     },
-  },
-  {
-    breakpoint: 768,
-    settings: {
-      slidesToShow: 2,
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
     },
-  },
-  {
-    breakpoint: 480,
-    settings: {
-      slidesToShow: 1,
-      arrows: false,
-      centerMode: false,
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
     },
-  },
-],
+  ],
 };
-
   return (
 
     <section className="pt-24 pb-0 bg-white">
 
-     <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative">
+    <div className="max-w-7xl mx-auto px-4 lg:px-12 relative">
 
         <h2 className="text-4xl font-bold text-center text-secondary mb-3">
   Why Choose Electrodes Engineering?

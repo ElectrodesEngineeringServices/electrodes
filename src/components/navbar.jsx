@@ -44,26 +44,29 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
           {/* Logo + Company Name */}
-         <Link to="/" className="flex items-center gap-2">
+         {/* Logo + Company Name */}
+<Link
+  to="/"
+  className="flex items-center gap-1 lg:gap-2 min-w-0"
+>
+  <img
+    src={logo}
+    alt="Logo"
+    className="h-11 w-auto lg:h-14 object-contain flex-shrink-0"
+  />
 
- <img
-  src={logo}
-  alt="Logo"
-  className="h-10 sm:h-12 md:h-14 w-auto"
-/>
-
-  <div className="flex flex-col">
+  <div className="leading-tight min-w-0">
 
     <h2
-  className={`font-bold text-base sm:text-lg md:text-2xl leading-tight whitespace-nowrap ${
-    isHome ? "text-white" : "text-gray-900"
-  }`}
->
-  Electrodes Engineering Services
-</h2>
+      className={`font-bold text-lg lg:text-2xl whitespace-nowrap ${
+        isHome ? "text-white" : "text-gray-900"
+      }`}
+    >
+      Electrodes Engineering Services
+    </h2>
 
     <p
-      className={`text-sm md:text-lg font-bold uppercase tracking-[4px] ${
+      className={`text-sm lg:text-lg font-bold uppercase tracking-[3px] lg:tracking-[4px] text-left ${
         isHome ? "text-gray-200" : "text-gray-600"
       }`}
     >
@@ -71,7 +74,6 @@ const Navbar = () => {
     </p>
 
   </div>
-
 </Link>
 
           {/* Desktop Menu */}
