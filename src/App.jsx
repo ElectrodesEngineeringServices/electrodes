@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+
 import Home from "./pages/home";
 import About from "./pages/about";
 import Electrical from "./pages/electrical";
@@ -11,6 +13,7 @@ import Contact from "./pages/contact";
 function App() {
   return (
     <Router>
+
       <Navbar />
 
       <Routes>
@@ -21,7 +24,9 @@ function App() {
         <Route path="/trading" element={<Trading />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-       <Footer />
+
+      <Footer />
+
     </Router>
   );
 }

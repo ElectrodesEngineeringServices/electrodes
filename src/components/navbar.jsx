@@ -41,8 +41,7 @@ const Navbar = () => {
             : "bg-white/80 backdrop-blur-xl border-b border-gray-200 shadow-lg py-3"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-
+       <div className="max-w-7xl mx-auto px-3 sm:px-6 flex justify-between items-center">
           {/* Logo + Company Name */}
          {/* Logo + Company Name */}
 <Link
@@ -55,9 +54,10 @@ const Navbar = () => {
     className="h-11 w-auto lg:h-14 object-contain flex-shrink-0"
   />
 
-  <div className="leading-tight -ml-6">
+ <div className="leading-tight -ml-2 min-w-0">
+
   <h2
-    className={`font-bold text-lg lg:text-2xl whitespace-nowrap ${
+    className={`font-bold text-[17px] sm:text-lg lg:text-2xl whitespace-nowrap ${
       isHome ? "text-white" : "text-gray-900"
     }`}
   >
@@ -115,14 +115,14 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu */}
-          <button
-            onClick={() => setIsDrawerOpen(true)}
-            className={`lg:hidden text-2xl ${
-              isHome ? "text-white" : "text-gray-900"
-            }`}
-          >
-            <FontAwesomeIcon icon={faBars} />
-          </button>
+        <button
+  onClick={() => setIsDrawerOpen(true)}
+  className={`lg:hidden text-2xl flex-shrink-0 ml-2 ${
+    isHome ? "text-white" : "text-gray-900"
+  }`}
+>
+  <FontAwesomeIcon icon={faBars} />
+</button>
 
         </div>
       </nav>
