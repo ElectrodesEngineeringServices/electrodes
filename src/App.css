@@ -12,9 +12,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -23,6 +25,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -41,17 +44,19 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Slick dots */
 .slick-dots {
-    bottom: 30px;
+  bottom: 30px;
 }
 
 .slick-dots li button:before {
-    color: white;
-    opacity: .5;
-    font-size: 12px;
+  color: white;
+  opacity: 0.5;
+  font-size: 12px;
 }
 
 .slick-dots li.slick-active button:before {
-    color: #06b6d4;
-    opacity: 1;
+  color: #06b6d4;
+  opacity: 1;
 }
