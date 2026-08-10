@@ -16,7 +16,7 @@ import Img10 from "../assets/img/slider10.jpeg";
 import Img11 from "../assets/img/slider5.jpeg";
 
 const data = [
-  { image: Img1, title: "(LV) Electrical Switchgear" },
+  { image: Img1, title: "Low Voltage (LV) Electrical Switchgear" },
   { image: Img2, title: "Solar Power System Installation" },
   { image: Img3, title: "Pad Mounted Transformer Installation" },
   { image: Img4, title: "Fire Fighting System" },
