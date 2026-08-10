@@ -2,7 +2,9 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 import Img1 from "../assets/img/lv.jpg";
 import Img2 from "../assets/img/mep.jpg";
 import Img3 from "../assets/img/solar1.jpeg";
@@ -12,111 +14,226 @@ const slides = [
   {
     image: Img1,
     title: "LV & MV SWITCHGEAR",
-    subtitle: "...",
+    subtitle: "Reliable low and medium voltage electrical switchgear solutions.",
     position: "center",
   },
   {
     image: Img2,
     title: "MEP SERVICES",
-    subtitle: "...",
+    subtitle: "Complete mechanical, electrical and plumbing engineering solutions.",
     position: "center",
   },
   {
     image: Img3,
     title: "RENEWABLE ENERGY",
-    subtitle: "...",
+    subtitle: "Efficient solar and renewable energy solutions for modern projects.",
     position: "center",
   },
   {
     image: Img4,
     title: "EARTHING AND LIGHTNING PROTECTION",
-    subtitle: "...",
-    position: "center 70%"
+    subtitle: "Professional earthing and lightning protection systems.",
+    position: "center 70%",
   },
 ];
 
 function NextArrow({ onClick }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-cyan-600 transition"
+      className="
+        absolute
+        right-4
+        md:right-8
+        top-1/2
+        -translate-y-1/2
+        z-30
+        w-10
+        h-10
+        md:w-12
+        md:h-12
+        rounded-full
+        bg-white/90
+        shadow-lg
+        flex
+        items-center
+        justify-center
+        text-gray-800
+        hover:bg-cyan-500
+        hover:text-white
+        transition
+      "
     >
-      <FaChevronRight className="mx-auto" />
+      <FaChevronRight />
     </button>
   );
 }
+
 function PrevArrow({ onClick }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-cyan-600 transition"
+      className="
+        absolute
+        left-4
+        md:left-8
+        top-1/2
+        -translate-y-1/2
+        z-30
+        w-10
+        h-10
+        md:w-12
+        md:h-12
+        rounded-full
+        bg-white/90
+        shadow-lg
+        flex
+        items-center
+        justify-center
+        text-gray-800
+        hover:bg-cyan-500
+        hover:text-white
+        transition
+      "
     >
-      <FaChevronLeft className="mx-auto" />
+      <FaChevronLeft />
     </button>
   );
 }
 
 const HeroSection = () => {
   const settings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 4000,
-  speed: 900,
-  arrows: true,
-  nextArrow: <NextArrow />,
-  prevArrow: <PrevArrow />,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  fade: true,
-  pauseOnHover: false,
-};
- return (
-  <div className="w-full overflow-hidden">
-    <Slider {...settings}>
-  {slides.map((slide, index) => (
-    <div key={index}>
-      <div
-  className="h-[75vh] lg:h-[82vh] bg-cover flex items-center"
-  style={{
-    backgroundImage: `url(${slide.image})`,
-    backgroundPosition: slide.position,
-  }}
->
-        <div className="w-full h-full bg-black/50 flex items-center">
-  <div className="max-w-7xl mx-auto w-full px-6 lg:px-16">
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 900,
 
-    {/* Small Badge
-    <div className="inline-block bg-white/20 backdrop-blur-md border border-white/30 text-white font-semibold px-6 py-2 rounded-full mb-6 uppercase tracking-widest">
-  Engineering Excellence
-</div> */}
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
 
-    {/* Heading */}
-    <h1 className="text-white text-5xl lg:text-7xl font-extrabold leading-tight max-w-3xl">
-      {slide.title}
-    </h1>
+    slidesToShow: 1,
+    slidesToScroll: 1,
 
-    {/* Description */}
-    <p className="mt-6 text-lg lg:text-xl text-gray-200 max-w-2xl">
-      {slide.subtitle}
-    </p>
+    fade: true,
+    pauseOnHover: false,
+  };
 
-    {/* Buttons */}
-    <div className="mt-8 flex flex-wrap gap-4">
+  return (
+    <section className="w-full overflow-hidden">
 
-     
-{/* <button className="border border-white/30 bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-semibold shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-white/50 hover:scale-105 hover:shadow-2xl">
-  Our Services
-</button> */}
-    </div>
+      <Slider {...settings}>
 
-  </div>
-</div>
-      </div>
-    </div>
-  ))}
-</Slider>
-</div>
+        {slides.map((slide, index) => (
+          <div key={index}>
+
+            <div
+              className="
+                relative
+                w-full
+                h-[500px]
+                md:h-[600px]
+                lg:h-[650px]
+                bg-cover
+                bg-center
+              "
+              style={{
+                backgroundImage: `url(${slide.image})`,
+                backgroundPosition: slide.position,
+              }}
+            >
+
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/45" />
+
+              {/* Content */}
+              <div className="relative z-10 h-full flex items-center">
+
+                <div className="max-w-7xl mx-auto w-full px-6 md:px-10 lg:px-16">
+
+                  <div className="max-w-3xl">
+
+                    <h1 className="
+                      text-white
+                      text-3xl
+                      sm:text-4xl
+                      md:text-5xl
+                      lg:text-7xl
+                      font-extrabold
+                      leading-tight
+                    ">
+                      {slide.title}
+                    </h1>
+
+                    <p className="
+                      mt-5
+                      md:mt-6
+                      text-base
+                      md:text-lg
+                      lg:text-xl
+                      text-gray-200
+                      max-w-2xl
+                    ">
+                      {slide.subtitle}
+                    </p>
+
+                    <div className="mt-6 md:mt-8 flex flex-wrap gap-4">
+
+                      <a
+                        href="/contact"
+                        className="
+                          px-6
+                          md:px-8
+                          py-3
+                          rounded-full
+                          bg-cyan-500
+                          text-white
+                          font-semibold
+                          hover:bg-cyan-600
+                          transition
+                        "
+                      >
+                        Contact Us
+                      </a>
+
+                      <a
+                        href="/electrical"
+                        className="
+                          px-6
+                          md:px-8
+                          py-3
+                          rounded-full
+                          border
+                          border-white
+                          text-white
+                          font-semibold
+                          hover:bg-white
+                          hover:text-gray-900
+                          transition
+                        "
+                      >
+                        Our Services
+                      </a>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        ))}
+
+      </Slider>
+
+    </section>
   );
 };
 
