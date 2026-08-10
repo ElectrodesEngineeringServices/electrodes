@@ -77,22 +77,22 @@ const PartnerSlider = () => {
 
     pauseOnHover: false,
 
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+   responsive: [
+  {
+    breakpoint: 1200,
+    settings: {
+      slidesToShow: 3,
+      slidesToScroll: 1,
+    },
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 1,
+    },
+  },
+],
   };
 
   return (
@@ -112,42 +112,27 @@ const PartnerSlider = () => {
 
         <Slider {...settings}>
 
-          {data.map((item, index) => (
+         {data.map((item, index) => (
+  <div key={index} className="px-2">
 
-            <div key={index} className="px-2 md:px-3">
+    <div className="rounded-3xl overflow-hidden shadow-lg bg-white h-[390px] flex flex-col">
 
-              <div
-                className="
-                rounded-3xl
-                overflow-hidden
-                shadow-lg
-                bg-white
-                h-[420px]
-                flex
-                flex-col
-                w-full
-                "
-              >
+      <img
+        src={item.image}
+        alt={item.title}
+        className="w-full h-52 object-cover object-center"
+      />
 
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-64 object-cover object-center"
-                />
+      <div className="flex-1 flex items-center justify-center p-4">
+        <h3 className="text-center text-lg md:text-2xl font-bold leading-snug">
+          {item.title}
+        </h3>
+      </div>
 
-                <div className="flex-1 flex items-center justify-center p-5">
+    </div>
 
-                  <h3 className="text-center text-xl md:text-2xl font-bold leading-snug">
-                    {item.title}
-                  </h3>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          ))}
+  </div>
+))}
 
         </Slider>
 
