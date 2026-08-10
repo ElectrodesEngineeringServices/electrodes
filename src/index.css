@@ -1,26 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* Partner Slider Mobile Fix */
-@media (max-width: 767px) {
-  .slick-slider {
-    width: 100%;
-  }
-
-  .slick-list {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .slick-track {
-    display: flex;
-  }
-
-  .slick-slide {
-    width: 100% !important;
-  }
-
-  .slick-slide > div {
-    width: 100%;
-  }
-}

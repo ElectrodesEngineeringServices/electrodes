@@ -78,21 +78,16 @@ const PartnerSlider = () => {
     pauseOnHover: false,
 
   responsive: [
+ 
   {
-    breakpoint: 1200,
-    settings: {
-      slidesToShow: 3,
-      slidesToScroll: 1,
-    },
+  breakpoint: 768,
+  settings: {
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    centerMode: false,
+    variableWidth: false,
   },
-  {
-    breakpoint: 768,
-    settings: {
-      slidesToShow: 2,
-      slidesToScroll: 1,
-      centerMode: false,
-      variableWidth: false,
-    },
+
   },
 ],
   };
@@ -112,9 +107,9 @@ const PartnerSlider = () => {
           high-quality solutions that exceed our clients' expectations.
         </p>
 
-        <Slider {...settings}>
+        <Slider {...settings} className="partner-slider">
 
-        {data.map((item, index) => (
+       {data.map((item, index) => (
   <div key={index}>
     <div className="mx-2 rounded-3xl overflow-hidden shadow-lg bg-white h-[390px] flex flex-col">
 
