@@ -77,7 +77,7 @@ const PartnerSlider = () => {
 
     pauseOnHover: false,
 
-   responsive: [
+  responsive: [
   {
     breakpoint: 1200,
     settings: {
@@ -90,6 +90,8 @@ const PartnerSlider = () => {
     settings: {
       slidesToShow: 2,
       slidesToScroll: 1,
+      centerMode: false,
+      variableWidth: false,
     },
   },
 ],
@@ -112,10 +114,9 @@ const PartnerSlider = () => {
 
         <Slider {...settings}>
 
-         {data.map((item, index) => (
-  <div key={index} className="px-2">
-
-    <div className="rounded-3xl overflow-hidden shadow-lg bg-white h-[390px] flex flex-col">
+        {data.map((item, index) => (
+  <div key={index}>
+    <div className="mx-2 rounded-3xl overflow-hidden shadow-lg bg-white h-[390px] flex flex-col">
 
       <img
         src={item.image}
@@ -130,7 +131,6 @@ const PartnerSlider = () => {
       </div>
 
     </div>
-
   </div>
 ))}
 
