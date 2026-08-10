@@ -16,7 +16,7 @@ import Img10 from "../assets/img/slider10.jpeg";
 import Img11 from "../assets/img/slider5.jpeg";
 
 const data = [
-  { image: Img1, title: "Low Voltage (LV) Electrical Switchgear" },
+  { image: Img1, title: "(LV) Electrical Switchgear" },
   { image: Img2, title: "Solar Power System Installation" },
   { image: Img3, title: "Pad Mounted Transformer Installation" },
   { image: Img4, title: "Fire Fighting System" },
@@ -32,11 +32,12 @@ function NextArrow({ onClick }) {
   return (
     <button
       onClick={onClick}
-      className="absolute top-1/2 -right-3 md:-right-6 z-20
-      -translate-y-1/2 w-12 h-12 rounded-full
-      bg-white shadow-xl flex items-center justify-center
-      cursor-pointer hover:bg-cyan-500 hover:text-white
-      transition-all duration-300"
+      className="absolute top-1/2 -right-2 md:-right-6 z-20
+      -translate-y-1/2
+      w-11 h-11 md:w-12 md:h-12
+      rounded-full bg-white shadow-xl
+      flex items-center justify-center
+      cursor-pointer"
     >
       <FaChevronRight />
     </button>
@@ -47,11 +48,12 @@ function PrevArrow({ onClick }) {
   return (
     <button
       onClick={onClick}
-      className="absolute top-1/2 -left-3 md:-left-6 z-20
-      -translate-y-1/2 w-12 h-12 rounded-full
-      bg-white shadow-xl flex items-center justify-center
-      cursor-pointer hover:bg-cyan-500 hover:text-white
-      transition-all duration-300"
+      className="absolute top-1/2 -left-2 md:-left-6 z-20
+      -translate-y-1/2
+      w-11 h-11 md:w-12 md:h-12
+      rounded-full bg-white shadow-xl
+      flex items-center justify-center
+      cursor-pointer"
     >
       <FaChevronLeft />
     </button>
@@ -65,12 +67,11 @@ const PartnerSlider = () => {
     autoplay: true,
     autoplaySpeed: 2500,
     speed: 1000,
-
     arrows: true,
+
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
 
-    // Desktop
     slidesToShow: 4,
     slidesToScroll: 1,
 
@@ -78,7 +79,6 @@ const PartnerSlider = () => {
 
     responsive: [
       {
-        // Tablet / small laptop
         breakpoint: 1200,
         settings: {
           slidesToShow: 3,
@@ -86,7 +86,6 @@ const PartnerSlider = () => {
         },
       },
       {
-        // Mobile
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
@@ -97,15 +96,15 @@ const PartnerSlider = () => {
   };
 
   return (
-    <section className="pt-24 pb-12 bg-white">
+    <section className="pt-24 pb-0 bg-white">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative">
 
-        <h2 className="text-4xl font-bold text-center text-secondary mb-3">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-3">
           Why Choose Electrodes Engineering?
         </h2>
 
-        <p className="text-center text-gray-500 mb-12 max-w-3xl mx-auto leading-8">
+        <p className="text-center text-gray-500 mb-12 max-w-3xl mx-auto leading-8 px-2">
           With years of industry experience, we have successfully completed
           numerous engineering projects, delivering reliable, innovative, and
           high-quality solutions that exceed our clients' expectations.
@@ -114,25 +113,40 @@ const PartnerSlider = () => {
         <Slider {...settings}>
 
           {data.map((item, index) => (
-            <div key={index} className="px-3">
 
-              <div className="rounded-3xl overflow-hidden shadow-lg bg-white h-[420px] flex flex-col">
+            <div key={index} className="px-2 md:px-3">
+
+              <div
+                className="
+                rounded-3xl
+                overflow-hidden
+                shadow-lg
+                bg-white
+                h-[420px]
+                flex
+                flex-col
+                w-full
+                "
+              >
 
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-64 object-cover object-center"
                 />
 
                 <div className="flex-1 flex items-center justify-center p-5">
-                  <h3 className="text-center text-2xl font-bold leading-snug">
+
+                  <h3 className="text-center text-xl md:text-2xl font-bold leading-snug">
                     {item.title}
                   </h3>
+
                 </div>
 
               </div>
 
             </div>
+
           ))}
 
         </Slider>
