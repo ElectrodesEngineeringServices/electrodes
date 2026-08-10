@@ -41,7 +41,8 @@ const Navbar = () => {
             : "bg-white/80 backdrop-blur-xl border-b border-gray-200 shadow-lg py-3"
         }`}
       >
-       <div className="max-w-7xl mx-auto px-3 sm:px-6 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+
           {/* Logo + Company Name */}
          {/* Logo + Company Name */}
 <Link
@@ -54,25 +55,25 @@ const Navbar = () => {
     className="h-11 w-auto lg:h-14 object-contain flex-shrink-0"
   />
 
- <div className="leading-tight -ml-2 min-w-0">
+  <div className="leading-tight min-w-0">
 
-  <h2
-    className={`font-bold text-[17px] sm:text-lg lg:text-2xl whitespace-nowrap ${
-      isHome ? "text-white" : "text-gray-900"
-    }`}
-  >
-    Electrodes Engineering Services
-  </h2>
+    <h2
+      className={`font-bold text-lg lg:text-2xl whitespace-nowrap ${
+        isHome ? "text-white" : "text-gray-900"
+      }`}
+    >
+      Electrodes Engineering Services
+    </h2>
 
-  <p
-    className={`text-sm lg:text-lg font-bold uppercase tracking-[3px] lg:tracking-[4px] text-left ${
-      isHome ? "text-gray-200" : "text-gray-600"
-    }`}
-  >
-    (Pvt.) Ltd
-  </p>
+    <p
+      className={`text-sm lg:text-lg font-bold uppercase tracking-[3px] lg:tracking-[4px] text-left ${
+        isHome ? "text-gray-200" : "text-gray-600"
+      }`}
+    >
+      (Pvt.) Ltd
+    </p>
 
-</div>
+  </div>
 </Link>
 
           {/* Desktop Menu */}
@@ -115,21 +116,22 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu */}
-        <button
-  onClick={() => setIsDrawerOpen(true)}
-  className={`lg:hidden text-2xl flex-shrink-0 ml-2 ${
-    isHome ? "text-white" : "text-gray-900"
-  }`}
->
-  <FontAwesomeIcon icon={faBars} />
-</button>
+          <button
+            onClick={() => setIsDrawerOpen(true)}
+            className={`lg:hidden text-2xl ${
+              isHome ? "text-white" : "text-gray-900"
+            }`}
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </button>
 
         </div>
       </nav>
-<Drawer
-  isDrawerOpen={isDrawerOpen}
-  closeDrawer={() => setIsDrawerOpen(false)}
-/>
+
+      <Drawer
+        isDrawerOpen={isDrawerOpen}
+        closeDrawer={() => setIsDrawerOpen(false)}
+      />
     </>
   );
 };
