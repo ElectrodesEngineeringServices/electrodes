@@ -115,143 +115,120 @@ function PrevArrow({ onClick }) {
 }
 
 const HeroSection = () => {
- const settings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 4000,
-  speed: 700,
-  arrows: true,
-  nextArrow: <NextArrow />,
-  prevArrow: <PrevArrow />,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  pauseOnHover: false,
-};
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 700,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    pauseOnHover: false,
+  };
 
   return (
     <section className="w-full overflow-hidden">
       <div className="relative w-full">
-      <Slider {...settings}>
-        {slides.map((slide, index) => (
-          <div key={index}>
-            <div
-              className="
-                relative
-                w-full
-                h-[520px]
-                sm:h-[560px]
-                md:h-[600px]
-                lg:h-[650px]
-                bg-cover
-                bg-center
-              "
-              style={{
-                backgroundImage: `url(${slide.image})`,
-                backgroundPosition: slide.position,
-              }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/50" />
 
-              {/* Content */}
-              <div className="relative z-10 h-full flex items-center">
-                <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
-                  <div className="max-w-3xl">
+        <Slider {...settings}>
 
-                    <h1
+          {slides.map((slide, index) => (
+            <div key={index}>
+
+              <div
+                className="
+                  relative
+                  w-full
+                  h-[520px]
+                  sm:h-[560px]
+                  md:h-[600px]
+                  lg:h-[650px]
+                  bg-cover
+                  bg-center
+                "
+                style={{
+                  backgroundImage: `url(${slide.image})`,
+                  backgroundPosition: slide.position,
+                }}
+              >
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50" />
+
+                {/* Content */}
+                <div className="relative z-10 h-full flex items-center">
+
+                  <div
+                    className="
+                      w-full
+                      max-w-7xl
+                      mx-auto
+                      px-5
+                      sm:px-8
+                      md:px-10
+                      lg:px-16
+                    "
+                  >
+
+                    {/* Mobile par upar, desktop par center */}
+                    <div
                       className="
-                        text-white
-                        text-3xl
-                        sm:text-4xl
-                        md:text-5xl
-                        lg:text-7xl
-                        font-extrabold
-                        leading-tight
+                        max-w-3xl
+                        -translate-y-10
+                        sm:-translate-y-8
+                        md:translate-y-0
                       "
                     >
-                      {slide.title}
-                    </h1>
 
-                    <p
-                      className="
-                        mt-4
-                        sm:mt-5
-                        md:mt-6
-                        text-sm
-                        sm:text-base
-                        md:text-lg
-                        lg:text-xl
-                        leading-relaxed
-                        text-gray-200
-                        max-w-2xl
-                      "
-                    >
-                      {slide.subtitle}
-                    </p>
-
-                    {/* Buttons */}
-                    {/* <div
-                      className="
-                        mt-6
-                        md:mt-8
-                        flex
-                        flex-col
-                        sm:flex-row
-                        gap-3
-                        sm:gap-4
-                      "
-                    >
-                      <a
-                        href="/contact"
+                      {/* Heading */}
+                      <h1
                         className="
-                          w-full
-                          sm:w-auto
-                          text-center
-                          px-6
-                          md:px-8
-                          py-3
-                          rounded-full
-                          bg-cyan-500
                           text-white
-                          font-semibold
-                          hover:bg-cyan-600
-                          transition
+                          text-2xl
+                          sm:text-3xl
+                          md:text-5xl
+                          lg:text-7xl
+                          font-extrabold
+                          leading-tight
                         "
                       >
-                        Contact Us
-                      </a>
+                        {slide.title}
+                      </h1>
 
-                      { <a
-                        href="/electrical"
+                      {/* Subtitle */}
+                      <p
                         className="
-                          w-full
-                          sm:w-auto
-                          text-center
-                          px-6
-                          md:px-8
-                          py-3
-                          rounded-full
-                          border
-                          border-white
-                          text-white
-                          font-semibold
-                          hover:bg-white
-                          hover:text-gray-900
-                          transition
+                          mt-3
+                          sm:mt-4
+                          md:mt-6
+                          text-sm
+                          sm:text-base
+                          md:text-lg
+                          lg:text-xl
+                          leading-relaxed
+                          text-gray-200
+                          max-w-2xl
                         "
                       >
-                        Our Services
-                      </a> }
-                    </div> */}
+                        {slide.subtitle}
+                      </p>
+
+                    </div>
 
                   </div>
+
                 </div>
+
               </div>
+
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+
+        </Slider>
+
       </div>
     </section>
   );
