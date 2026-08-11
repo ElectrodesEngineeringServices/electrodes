@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faXmark,
   faArrowRight,
@@ -67,90 +68,140 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
       {/* ================= OVERLAY ================= */}
       <div
         onClick={closeDrawer}
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="
+          absolute
+          inset-0
+          bg-black/60
+          backdrop-blur-[2px]
+        "
       />
 
-      {/* ================= MOBILE MENU ================= */}
+      {/* ================= DRAWER ================= */}
       <div
+        onClick={(e) => e.stopPropagation()}
         className="
           absolute
           top-0
           right-0
           h-full
-          w-[88%]
-          max-w-[390px]
-          bg-white
+          w-[86%]
+          max-w-[380px]
+          bg-[#0b1220]
+          text-white
           shadow-2xl
           flex
           flex-col
         "
-        onClick={(e) => e.stopPropagation()}
       >
 
         {/* ================= HEADER ================= */}
-        <div className="flex items-center justify-between px-5 py-5 border-b border-gray-100">
+        <div
+          className="
+            px-5
+            py-5
+            border-b
+            border-white/10
+          "
+        >
+          <div className="flex items-center justify-between">
 
-          {/* Logo + Company */}
-          <Link
-            to="/"
-            onClick={closeDrawer}
-            className="flex items-center gap-3 min-w-0"
-          >
-            <img
-              src={logo}
-              alt="Electrodes Engineering Services"
-              className="w-11 h-11 object-contain flex-shrink-0"
-            />
+            {/* Logo */}
+            <Link
+              to="/"
+              onClick={closeDrawer}
+              className="flex items-center gap-3"
+            >
+              <div
+                className="
+                  w-11
+                  h-11
+                  rounded-xl
+                  bg-white
+                  flex
+                  items-center
+                  justify-center
+                  shadow-md
+                "
+              >
+                <img
+                  src={logo}
+                  alt="Electrodes Engineering Services"
+                  className="w-8 h-8 object-contain"
+                />
+              </div>
 
-            <div className="min-w-0">
-              <h2 className="text-[15px] sm:text-base font-bold text-gray-900 leading-tight">
-                Electrodes Engineering
-              </h2>
+              <div>
+                <h2 className="text-[15px] font-bold leading-tight">
+                  Electrodes Engineering
+                </h2>
 
-              <p className="text-[9px] sm:text-[10px] font-semibold tracking-[3px] text-gray-500 uppercase mt-1">
-                Services (Pvt.) Ltd
-              </p>
-            </div>
-          </Link>
+                <p
+                  className="
+                    mt-1
+                    text-[9px]
+                    uppercase
+                    tracking-[3px]
+                    text-gray-400
+                  "
+                >
+                  Services (Pvt.) Ltd
+                </p>
+              </div>
+            </Link>
 
-          {/* Close */}
-          <button
-            type="button"
-            onClick={closeDrawer}
-            aria-label="Close menu"
-            className="
-              w-10
-              h-10
-              flex
-              items-center
-              justify-center
-              rounded-full
-              bg-gray-100
-              text-gray-700
-              hover:bg-cyan-500
-              hover:text-white
-              transition-all
-              duration-300
-              flex-shrink-0
-            "
-          >
-            <FontAwesomeIcon icon={faXmark} className="text-lg" />
-          </button>
+            {/* Close */}
+            <button
+              type="button"
+              onClick={closeDrawer}
+              aria-label="Close menu"
+              className="
+                w-10
+                h-10
+                rounded-full
+                border
+                border-white/10
+                bg-white/5
+                text-gray-300
+                flex
+                items-center
+                justify-center
+                hover:bg-cyan-500
+                hover:text-white
+                hover:border-cyan-500
+                transition-all
+                duration-300
+              "
+            >
+              <FontAwesomeIcon icon={faXmark} />
+            </button>
+
+          </div>
         </div>
 
-        {/* ================= MENU TITLE ================= */}
-        <div className="px-6 pt-8 pb-4">
-          <p className="text-xs font-semibold uppercase tracking-[3px] text-cyan-600">
+        {/* ================= NAVIGATION ================= */}
+        <div className="px-5 pt-7">
+
+          <p
+            className="
+              text-[10px]
+              uppercase
+              tracking-[3px]
+              font-semibold
+              text-cyan-400
+              mb-2
+            "
+          >
+            Main Menu
+          </p>
+
+          <p className="text-xl font-semibold text-white mb-5">
             Navigation
           </p>
 
-          <h3 className="mt-1 text-2xl font-bold text-gray-900">
-            Explore Our Website
-          </h3>
         </div>
 
         {/* ================= MENU ITEMS ================= */}
-        <nav className="flex-1 px-5 overflow-y-auto">
+        <nav className="flex-1 px-4 overflow-y-auto">
 
           <div className="space-y-1">
 
@@ -167,17 +218,16 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
                     flex
                     items-center
                     justify-between
-                    w-full
                     px-4
-                    py-4
+                    py-3.5
                     rounded-xl
                     transition-all
                     duration-300
 
                     ${
                       isActive
-                        ? "bg-cyan-50 text-cyan-600"
-                        : "text-gray-700 hover:bg-gray-50 hover:text-cyan-600"
+                        ? "bg-cyan-500 text-white shadow-lg shadow-cyan-500/20"
+                        : "text-gray-300 hover:bg-white/5 hover:text-white"
                     }
                   `}
                 >
@@ -187,8 +237,8 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
                     {/* Icon */}
                     <div
                       className={`
-                        w-10
-                        h-10
+                        w-9
+                        h-9
                         rounded-lg
                         flex
                         items-center
@@ -198,16 +248,19 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
 
                         ${
                           isActive
-                            ? "bg-cyan-500 text-white"
-                            : "bg-gray-100 text-gray-600 group-hover:bg-cyan-500 group-hover:text-white"
+                            ? "bg-white/20 text-white"
+                            : "bg-white/5 text-gray-400 group-hover:bg-cyan-500/10 group-hover:text-cyan-400"
                         }
                       `}
                     >
-                      <FontAwesomeIcon icon={item.icon} />
+                      <FontAwesomeIcon
+                        icon={item.icon}
+                        className="text-sm"
+                      />
                     </div>
 
                     {/* Name */}
-                    <span className="font-semibold text-[15px]">
+                    <span className="text-[15px] font-medium">
                       {item.name}
                     </span>
 
@@ -217,13 +270,14 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
                   <FontAwesomeIcon
                     icon={faArrowRight}
                     className={`
-                      text-sm
+                      text-xs
                       transition-all
                       duration-300
+
                       ${
                         isActive
-                          ? "text-cyan-500"
-                          : "text-gray-300 group-hover:text-cyan-500 group-hover:translate-x-1"
+                          ? "text-white"
+                          : "text-gray-600 group-hover:text-cyan-400 group-hover:translate-x-1"
                       }
                     `}
                   />
@@ -233,52 +287,78 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
             })}
 
           </div>
+
         </nav>
 
         {/* ================= CONTACT ================= */}
-        <div className="px-5 pb-5 pt-4">
+        <div className="px-4 pb-4 pt-3">
 
           <Link
             to="/contact"
             onClick={closeDrawer}
             className="
+              group
               flex
               items-center
               justify-between
-              w-full
-              px-5
+              px-4
               py-4
               rounded-xl
-              bg-gray-900
-              text-white
-              hover:bg-cyan-600
+              bg-white/5
+              border
+              border-white/10
+              hover:bg-cyan-500
+              hover:border-cyan-500
               transition-all
               duration-300
-              shadow-lg
             "
           >
+
             <div className="flex items-center gap-3">
 
-              <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">
+              <div
+                className="
+                  w-10
+                  h-10
+                  rounded-lg
+                  bg-cyan-500
+                  flex
+                  items-center
+                  justify-center
+                  text-white
+                  group-hover:bg-white
+                  group-hover:text-cyan-600
+                  transition
+                "
+              >
                 <FontAwesomeIcon icon={faPhone} />
               </div>
 
               <div>
-                <p className="text-xs text-gray-400">
-                  Have a project?
+                <p className="text-[10px] text-gray-400 group-hover:text-cyan-100">
+                  Need a solution?
                 </p>
 
-                <p className="font-semibold">
+                <p className="text-sm font-semibold text-white">
                   Contact Us
                 </p>
               </div>
 
             </div>
 
-            <FontAwesomeIcon icon={faArrowRight} />
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              className="
+                text-gray-500
+                group-hover:text-white
+                group-hover:translate-x-1
+                transition
+              "
+            />
+
           </Link>
 
-          <p className="text-center text-[10px] text-gray-400 mt-4">
+          <p className="text-center text-[9px] text-gray-600 mt-4">
             © {new Date().getFullYear()} Electrodes Engineering Services
           </p>
 
