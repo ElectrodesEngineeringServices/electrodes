@@ -191,7 +191,7 @@ const HeroSection = () => {
                     </p>
 
                     {/* Buttons */}
-                    <div
+                    {/* <div
                       className="
                         mt-6
                         md:mt-8
@@ -222,7 +222,7 @@ const HeroSection = () => {
                         Contact Us
                       </a>
 
-                      {/* <a
+                      { <a
                         href="/electrical"
                         className="
                           w-full
@@ -242,8 +242,8 @@ const HeroSection = () => {
                         "
                       >
                         Our Services
-                      </a> */}
-                    </div>
+                      </a> }
+                    </div> */}
 
                   </div>
                 </div>
