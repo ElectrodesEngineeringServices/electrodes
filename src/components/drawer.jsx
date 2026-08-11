@@ -179,7 +179,7 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
         </div>
 
         {/* ================= NAVIGATION ================= */}
-        <div className="px-5 pt-7">
+        {/* <div className="px-5 pt-7">
 
           <p
             className="
@@ -198,7 +198,7 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
             Navigation
           </p>
 
-        </div>
+        </div> */}
 
         {/* ================= MENU ITEMS ================= */}
         <nav className="flex-1 px-4 overflow-y-auto">
