@@ -174,14 +174,14 @@ const HeroSection = () => {
                   >
 
                     {/* Mobile par upar, desktop par center */}
-                    <div
-                      className="
-                        max-w-3xl
-                        -translate-y-2
-                        sm:-translate-y-8
-                        md:translate-y-0
-                      "
-                    >
+                   <div
+  className="
+    max-w-3xl
+    -translate-y-24
+    sm:-translate-y-14
+    md:translate-y-0
+  "
+>
 
                       {/* Heading */}
                       <h1
