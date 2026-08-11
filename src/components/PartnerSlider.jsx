@@ -1,7 +1,5 @@
-import Slider from "react-slick";
+import { useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import Img1 from "../assets/img/slider1.jpeg";
 import Img2 from "../assets/img/slider2.jpeg";
@@ -27,119 +25,98 @@ const data = [
   { image: Img11, title: "FM-200 System" },
 ];
 
-function NextArrow({ onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label="Next slide"
-      className="
-        !flex
-        absolute
-        top-1/2
-        right-2
-        md:-right-5
-        z-30
-        -translate-y-1/2
-        w-9
-        h-9
-        md:w-12
-        md:h-12
-        rounded-full
-        bg-white
-        shadow-xl
-        items-center
-        justify-center
-        text-gray-700
-        hover:bg-cyan-500
-        hover:text-white
-        transition-all
-        duration-300
-      "
-    >
-      <FaChevronRight className="text-sm md:text-base" />
-    </button>
-  );
-}
-
-function PrevArrow({ onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label="Previous slide"
-      className="
-        !flex
-        absolute
-        top-1/2
-        left-2
-        md:-left-5
-        z-30
-        -translate-y-1/2
-        w-9
-        h-9
-        md:w-12
-        md:h-12
-        rounded-full
-        bg-white
-        shadow-xl
-        items-center
-        justify-center
-        text-gray-700
-        hover:bg-cyan-500
-        hover:text-white
-        transition-all
-        duration-300
-      "
-    >
-      <FaChevronLeft className="text-sm md:text-base" />
-    </button>
-  );
-}
-
 const PartnerSlider = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    speed: 700,
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(4);
 
-    arrows: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+  const sliderRef = useRef(null);
 
-    slidesToShow: 4,
-    slidesToScroll: 1,
+  // ==============================
+  // RESPONSIVE CARD COUNT
+  // ==============================
+  useEffect(() => {
+    const updateCards = () => {
+      if (window.innerWidth < 640) {
+        setCardsToShow(1);
+      } else if (window.innerWidth < 1024) {
+        setCardsToShow(2);
+      } else {
+        setCardsToShow(4);
+      }
+    };
 
-    pauseOnHover: false,
+    updateCards();
 
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          arrows: true,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true,
-        },
-      },
-    ],
+    window.addEventListener("resize", updateCards);
+
+    return () => {
+      window.removeEventListener("resize", updateCards);
+    };
+  }, []);
+
+  // ==============================
+  // MAX INDEX
+  // ==============================
+  const maxIndex = Math.max(data.length - cardsToShow, 0);
+
+  // ==============================
+  // NEXT
+  // ==============================
+  const nextSlide = () => {
+    setCurrentIndex((prev) => {
+      if (prev >= maxIndex) {
+        return 0;
+      }
+
+      return prev + 1;
+    });
   };
 
+  // ==============================
+  // PREVIOUS
+  // ==============================
+  const prevSlide = () => {
+    setCurrentIndex((prev) => {
+      if (prev <= 0) {
+        return maxIndex;
+      }
+
+      return prev - 1;
+    });
+  };
+
+  // ==============================
+  // AUTO SLIDE
+  // ==============================
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [maxIndex]);
+
+  // ==============================
+  // KEEP INDEX VALID
+  // ==============================
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(0);
+    }
+  }, [maxIndex, currentIndex]);
+
+  // ==============================
+  // DOTS
+  // ==============================
+  const totalDots = maxIndex + 1;
+
   return (
-    <section className="pt-16 sm:pt-20 md:pt-24 pb-8 bg-white">
+    <section className="pt-16 sm:pt-20 md:pt-24 pb-10 bg-white">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
 
-        {/* Heading */}
+        {/* ================= HEADING ================= */}
+
         <h2
           className="
             text-2xl
@@ -154,20 +131,20 @@ const PartnerSlider = () => {
           Why Choose Electrodes Engineering?
         </h2>
 
-        {/* Description */}
+        {/* ================= DESCRIPTION ================= */}
+
         <p
           className="
             text-center
             text-gray-500
             text-sm
             sm:text-base
-            mb-8
-            sm:mb-10
-            md:mb-12
             max-w-3xl
             mx-auto
             leading-7
             sm:leading-8
+            mb-10
+            md:mb-12
             px-2
           "
         >
@@ -176,85 +153,221 @@ const PartnerSlider = () => {
           high-quality solutions that exceed our clients' expectations.
         </p>
 
-        {/* Slider */}
-        <div className="w-full">
+        {/* ================= SLIDER ================= */}
 
-          <Slider {...settings}>
+        <div className="relative">
 
-            {data.map((item, index) => (
+          {/* LEFT ARROW */}
 
-              <div key={index} className="px-2">
+          <button
+            type="button"
+            onClick={prevSlide}
+            aria-label="Previous"
+            className="
+              absolute
+              z-20
+              left-1
+              sm:-left-3
+              lg:-left-5
+              top-1/2
+              -translate-y-1/2
+              w-10
+              h-10
+              sm:w-11
+              sm:h-11
+              rounded-full
+              bg-white
+              shadow-xl
+              flex
+              items-center
+              justify-center
+              text-gray-700
+              hover:bg-cyan-500
+              hover:text-white
+              transition-all
+              duration-300
+            "
+          >
+            <FaChevronLeft />
+          </button>
 
-                {/* CARD */}
+          {/* ================= VIEWPORT ================= */}
+
+          <div
+            ref={sliderRef}
+            className="overflow-hidden"
+          >
+
+            {/* ================= TRACK ================= */}
+
+            <div
+              className="
+                flex
+                transition-transform
+                duration-700
+                ease-in-out
+              "
+              style={{
+                transform: `translateX(-${currentIndex * (100 / cardsToShow)}%)`,
+              }}
+            >
+
+              {data.map((item, index) => (
+
                 <div
+                  key={index}
                   className="
+                    flex-shrink-0
                     w-full
-                    rounded-2xl
-                    overflow-hidden
-                    shadow-lg
-                    bg-white
-                    border
-                    border-gray-100
-                    flex
-                    flex-col
-
-                    h-[360px]
-                    sm:h-[380px]
-                    md:h-[420px]
+                    sm:w-1/2
+                    lg:w-1/4
+                    px-2
                   "
                 >
 
-                  {/* IMAGE */}
-                  <div className="w-full h-[210px] sm:h-[230px] md:h-64 shrink-0">
+                  {/* ================= CARD ================= */}
 
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="
-                        w-full
-                        h-full
-                        object-cover
-                        object-center
-                      "
-                    />
-
-                  </div>
-
-                  {/* TITLE */}
                   <div
                     className="
-                      flex-1
-                      flex
-                      items-center
-                      justify-center
-                      px-5
-                      py-4
+                      w-full
+                      bg-white
+                      rounded-2xl
+                      overflow-hidden
+                      shadow-lg
+                      border
+                      border-gray-100
+                      h-[330px]
+                      sm:h-[360px]
+                      md:h-[400px]
                     "
                   >
 
-                    <h3
+                    {/* IMAGE */}
+
+                    <div
                       className="
-                        text-center
-                        text-lg
-                        sm:text-xl
-                        md:text-2xl
-                        font-bold
-                        leading-snug
-                        text-gray-900
+                        w-full
+                        h-[190px]
+                        sm:h-[210px]
+                        md:h-[235px]
+                        overflow-hidden
                       "
                     >
-                      {item.title}
-                    </h3>
+
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="
+                          w-full
+                          h-full
+                          object-cover
+                          object-center
+                        "
+                      />
+
+                    </div>
+
+                    {/* TITLE */}
+
+                    <div
+                      className="
+                        h-[140px]
+                        sm:h-[150px]
+                        md:h-[165px]
+                        flex
+                        items-center
+                        justify-center
+                        px-5
+                      "
+                    >
+
+                      <h3
+                        className="
+                          text-center
+                          text-base
+                          sm:text-lg
+                          md:text-xl
+                          font-bold
+                          leading-snug
+                          text-gray-900
+                        "
+                      >
+                        {item.title}
+                      </h3>
+
+                    </div>
 
                   </div>
 
                 </div>
 
-              </div>
+              ))}
 
-            ))}
+            </div>
 
-          </Slider>
+          </div>
+
+          {/* RIGHT ARROW */}
+
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Next"
+            className="
+              absolute
+              z-20
+              right-1
+              sm:-right-3
+              lg:-right-5
+              top-1/2
+              -translate-y-1/2
+              w-10
+              h-10
+              sm:w-11
+              sm:h-11
+              rounded-full
+              bg-white
+              shadow-xl
+              flex
+              items-center
+              justify-center
+              text-gray-700
+              hover:bg-cyan-500
+              hover:text-white
+              transition-all
+              duration-300
+            "
+          >
+            <FaChevronRight />
+          </button>
+
+        </div>
+
+        {/* ================= DOTS ================= */}
+
+        <div className="flex justify-center items-center gap-2 mt-7">
+
+          {Array.from({ length: totalDots }).map((_, index) => (
+
+            <button
+              key={index}
+              type="button"
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              className={`
+                rounded-full
+                transition-all
+                duration-300
+
+                ${
+                  currentIndex === index
+                    ? "w-7 h-2 bg-cyan-500"
+                    : "w-2 h-2 bg-gray-300 hover:bg-cyan-400"
+                }
+              `}
+            />
+
+          ))}
 
         </div>
 
