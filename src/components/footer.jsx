@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Company */}
         <div>
          <div className="flex items-center gap-3 mb-5 -ml-8">
-            <img src={logo} alt="Logo" className="w-12 h-12" />
+            {/* <img src={logo} alt="Logo" className="w-12 h-12" /> */}
             <div>
               <h2 className="text-xl font-bold">
                 Electrodes Engineering

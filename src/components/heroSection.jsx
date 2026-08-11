@@ -177,7 +177,7 @@ const HeroSection = () => {
                     <div
                       className="
                         max-w-3xl
-                        -translate-y-6
+                        -translate-y-2
                         sm:-translate-y-8
                         md:translate-y-0
                       "
