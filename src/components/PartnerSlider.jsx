@@ -41,8 +41,8 @@ function NextArrow({ onClick }) {
         md:-right-5
         z-30
         -translate-y-1/2
-        w-10
-        h-10
+        w-9
+        h-9
         md:w-12
         md:h-12
         rounded-full
@@ -57,7 +57,7 @@ function NextArrow({ onClick }) {
         duration-300
       "
     >
-      <FaChevronRight />
+      <FaChevronRight className="text-sm md:text-base" />
     </button>
   );
 }
@@ -76,8 +76,8 @@ function PrevArrow({ onClick }) {
         md:-left-5
         z-30
         -translate-y-1/2
-        w-10
-        h-10
+        w-9
+        h-9
         md:w-12
         md:h-12
         rounded-full
@@ -92,41 +92,47 @@ function PrevArrow({ onClick }) {
         duration-300
       "
     >
-      <FaChevronLeft />
+      <FaChevronLeft className="text-sm md:text-base" />
     </button>
   );
 }
 
 const PartnerSlider = () => {
   const settings = {
-  dots: true,
-  infinite: true,
-  autoplay: true,
-  autoplaySpeed: 2500,
-  speed: 700,
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    speed: 700,
 
-  arrows: true,
-  nextArrow: <NextArrow />,
-  prevArrow: <PrevArrow />,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
 
-  // Desktop
-  slidesToShow: 4,
-  slidesToScroll: 1,
+    slidesToShow: 4,
+    slidesToScroll: 1,
 
-  pauseOnHover: false,
+    pauseOnHover: false,
 
-  responsive: [
-    {
-      // Tablet + Mobile
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true,
+        },
       },
-    },
-  ],
-};
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+        },
+      },
+    ],
+  };
 
   return (
     <section className="pt-16 sm:pt-20 md:pt-24 pb-8 bg-white">
@@ -171,60 +177,84 @@ const PartnerSlider = () => {
         </p>
 
         {/* Slider */}
-        <div className="px-1 sm:px-2 md:px-4">
+        <div className="w-full">
 
-         <Slider {...settings}>
-  {data.map((item, index) => (
-    <div key={index} className="px-2 sm:px-3">
+          <Slider {...settings}>
 
-      <div
-        className="
-          rounded-2xl
-          sm:rounded-3xl
-          overflow-hidden
-          shadow-lg
-          bg-white
-          h-[350px]
-          sm:h-[380px]
-          md:h-[420px]
-          flex
-          flex-col
-        "
-      >
+            {data.map((item, index) => (
 
-        <img
-          src={item.image}
-          alt={item.title}
-          className="
-            w-full
-            h-[220px]
-            sm:h-[240px]
-            md:h-64
-            object-cover
-            object-center
-          "
-        />
+              <div key={index} className="px-2">
 
-        <div className="flex-1 flex items-center justify-center p-5">
-          <h3
-            className="
-              text-center
-              text-lg
-              sm:text-xl
-              md:text-2xl
-              font-bold
-              leading-snug
-            "
-          >
-            {item.title}
-          </h3>
-        </div>
+                {/* CARD */}
+                <div
+                  className="
+                    w-full
+                    rounded-2xl
+                    overflow-hidden
+                    shadow-lg
+                    bg-white
+                    border
+                    border-gray-100
+                    flex
+                    flex-col
 
-      </div>
+                    h-[360px]
+                    sm:h-[380px]
+                    md:h-[420px]
+                  "
+                >
 
-    </div>
-  ))}
-</Slider>
+                  {/* IMAGE */}
+                  <div className="w-full h-[210px] sm:h-[230px] md:h-64 shrink-0">
+
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="
+                        w-full
+                        h-full
+                        object-cover
+                        object-center
+                      "
+                    />
+
+                  </div>
+
+                  {/* TITLE */}
+                  <div
+                    className="
+                      flex-1
+                      flex
+                      items-center
+                      justify-center
+                      px-5
+                      py-4
+                    "
+                  >
+
+                    <h3
+                      className="
+                        text-center
+                        text-lg
+                        sm:text-xl
+                        md:text-2xl
+                        font-bold
+                        leading-snug
+                        text-gray-900
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </Slider>
 
         </div>
 
