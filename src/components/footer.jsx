@@ -8,26 +8,24 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {/* Company */}
-        <div>
-         <div className="flex items-center gap-3 mb-5 -ml-8">
-            {/* <img src={logo} alt="Logo" className="w-12 h-12" /> */}
-            <div>
-              <h2 className="text-xl font-bold">
-                Electrodes Engineering
-              </h2>
-              <p className="text-sm text-gray-400">
-                Services (Pvt.) Ltd
-              </p>
-            </div>
-          </div>
+       <div>
+  <div className="mb-5">
+    <h2 className="text-xl font-bold whitespace-nowrap">
+      Electrodes Engineering Services
+    </h2>
 
-          <p className="text-gray-400 leading-7">
-            Electrodes Engineering Services provides Electrical,
-            Mechanical, MEP, Renewable Energy, Earthing & Lightning
-            Protection, Hydraulic Bollards and Industrial Trading
-            solutions across Pakistan.
-          </p>
-        </div>
+    <p className="text-sm text-gray-400 tracking-[3px]">
+      (Pvt.) Ltd
+    </p>
+  </div>
+
+  <p className="text-gray-400 leading-7">
+    Electrodes Engineering Services provides Electrical,
+    Mechanical, MEP, Renewable Energy, Earthing & Lightning
+    Protection, Hydraulic Bollards and Industrial Trading
+    solutions across Pakistan.
+  </p>
+</div>
 
         {/* Quick Links */}
         <div>
