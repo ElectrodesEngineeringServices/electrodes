@@ -62,8 +62,8 @@ const tradingdataCard = [
   },
   {
     image: pic8,
-    name: "Bakelite Neutral Link Base ",
-    description: "We provide high-quality Bakelite Neutral Link Bases with expert installation, ensuring secure neutral connections and reliable electrical performance.",
+    name: "Neutral & Earth busbar links for Brass material ",
+    description: "We provide high-quality Neutral & Earth busbar links for Brass material with expert installation, ensuring secure neutral connections and reliable electrical performance.",
     link: "/trading",
   },
   {
@@ -86,8 +86,8 @@ const tradingdataCard = [
   },
   {
     image: pic12,
-    name: " Panel Bracker Channel ( MCCB) ",
-    description: "We supply and install premium-quality Panel Bracket Channels (MCCB), providing secure mounting, structural support, and reliable performance for electrical panels and switchgear systems.",
+    name: " Panel breakers MCB,MCC, ACB ",
+    description: "We supply and install premium-quality Panel breakers MCB,MCC, ACB, providing secure mounting, structural support, and reliable performance for electrical panels and switchgear systems.",
     link: "/trading",
   },
   { 
