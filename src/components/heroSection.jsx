@@ -43,33 +43,36 @@ const slides = [
 function NextArrow({ onClick }) {
   return (
     <button
+      type="button"
       onClick={onClick}
+      aria-label="Next slide"
+      style={{
+        position: "absolute",
+        right: "12px",
+        top: "50%",
+        transform: "translateY(-50%)",
+        zIndex: 30,
+      }}
       className="
-        absolute
-        right-3
-        sm:right-5
-        md:right-8
-        top-1/2
-        -translate-y-1/2
-        z-20
-        w-9
-        h-9
+        !flex
+        items-center
+        justify-center
+        w-10
+        h-10
         sm:w-11
         sm:h-11
         md:w-12
         md:h-12
         rounded-full
-        bg-black/40
+        bg-black/50
         hover:bg-cyan-500
         text-white
-        flex
-        items-center
-        justify-center
-        transition
+        transition-all
+        duration-300
+        shadow-lg
       "
-      aria-label="Next slide"
     >
-      <FaChevronRight />
+      <FaChevronRight className="text-base sm:text-lg" />
     </button>
   );
 }
@@ -77,55 +80,58 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
   return (
     <button
+      type="button"
       onClick={onClick}
+      aria-label="Previous slide"
+      style={{
+        position: "absolute",
+        left: "12px",
+        top: "50%",
+        transform: "translateY(-50%)",
+        zIndex: 30,
+      }}
       className="
-        absolute
-        left-3
-        sm:left-5
-        md:left-8
-        top-1/2
-        -translate-y-1/2
-        z-20
-        w-9
-        h-9
+        !flex
+        items-center
+        justify-center
+        w-10
+        h-10
         sm:w-11
         sm:h-11
         md:w-12
         md:h-12
         rounded-full
-        bg-black/40
+        bg-black/50
         hover:bg-cyan-500
         text-white
-        flex
-        items-center
-        justify-center
-        transition
+        transition-all
+        duration-300
+        shadow-lg
       "
-      aria-label="Previous slide"
     >
-      <FaChevronLeft />
+      <FaChevronLeft className="text-base sm:text-lg" />
     </button>
   );
 }
 
 const HeroSection = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    speed: 900,
-    arrows: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    fade: true,
-    pauseOnHover: false,
-  };
+ const settings = {
+  dots: true,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  speed: 700,
+  arrows: true,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  pauseOnHover: false,
+};
 
   return (
     <section className="w-full overflow-hidden">
+      <div className="relative w-full">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
@@ -216,7 +222,7 @@ const HeroSection = () => {
                         Contact Us
                       </a>
 
-                      <a
+                      {/* <a
                         href="/electrical"
                         className="
                           w-full
@@ -236,7 +242,7 @@ const HeroSection = () => {
                         "
                       >
                         Our Services
-                      </a>
+                      </a> */}
                     </div>
 
                   </div>
@@ -246,6 +252,7 @@ const HeroSection = () => {
           </div>
         ))}
       </Slider>
+      </div>
     </section>
   );
 };
