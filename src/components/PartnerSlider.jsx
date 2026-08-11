@@ -32,28 +32,24 @@ function NextArrow({ onClick }) {
     <button
       type="button"
       onClick={onClick}
-      aria-label="Next"
+      aria-label="Next slide"
       className="
         !flex
         absolute
         top-1/2
-        right-1
-        sm:-right-3
+        right-2
         md:-right-5
-        z-20
+        z-30
         -translate-y-1/2
-        w-9
-        h-9
-        sm:w-10
-        sm:h-10
+        w-10
+        h-10
         md:w-12
         md:h-12
         rounded-full
         bg-white
-        shadow-lg
+        shadow-xl
         items-center
         justify-center
-        cursor-pointer
         text-gray-700
         hover:bg-cyan-500
         hover:text-white
@@ -61,7 +57,7 @@ function NextArrow({ onClick }) {
         duration-300
       "
     >
-      <FaChevronRight className="text-sm md:text-base" />
+      <FaChevronRight />
     </button>
   );
 }
@@ -71,28 +67,24 @@ function PrevArrow({ onClick }) {
     <button
       type="button"
       onClick={onClick}
-      aria-label="Previous"
+      aria-label="Previous slide"
       className="
         !flex
         absolute
         top-1/2
-        left-1
-        sm:-left-3
+        left-2
         md:-left-5
-        z-20
+        z-30
         -translate-y-1/2
-        w-9
-        h-9
-        sm:w-10
-        sm:h-10
+        w-10
+        h-10
         md:w-12
         md:h-12
         rounded-full
         bg-white
-        shadow-lg
+        shadow-xl
         items-center
         justify-center
-        cursor-pointer
         text-gray-700
         hover:bg-cyan-500
         hover:text-white
@@ -100,52 +92,41 @@ function PrevArrow({ onClick }) {
         duration-300
       "
     >
-      <FaChevronLeft className="text-sm md:text-base" />
+      <FaChevronLeft />
     </button>
   );
 }
 
 const PartnerSlider = () => {
   const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    speed: 700,
+  dots: true,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 2500,
+  speed: 700,
 
-    arrows: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+  arrows: true,
+  nextArrow: <NextArrow />,
+  prevArrow: <PrevArrow />,
 
-    slidesToShow: 4,
-    slidesToScroll: 1,
+  // Desktop
+  slidesToShow: 4,
+  slidesToScroll: 1,
 
-    pauseOnHover: false,
+  pauseOnHover: false,
 
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
+  responsive: [
+    {
+      // Tablet + Mobile
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
       },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+    },
+  ],
+};
 
   return (
     <section className="pt-16 sm:pt-20 md:pt-24 pb-8 bg-white">
@@ -192,75 +173,58 @@ const PartnerSlider = () => {
         {/* Slider */}
         <div className="px-1 sm:px-2 md:px-4">
 
-          <Slider {...settings}>
+         <Slider {...settings}>
+  {data.map((item, index) => (
+    <div key={index} className="px-2 sm:px-3">
 
-            {data.map((item, index) => (
+      <div
+        className="
+          rounded-2xl
+          sm:rounded-3xl
+          overflow-hidden
+          shadow-lg
+          bg-white
+          h-[350px]
+          sm:h-[380px]
+          md:h-[420px]
+          flex
+          flex-col
+        "
+      >
 
-              <div key={index} className="px-2 sm:px-3">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="
+            w-full
+            h-[220px]
+            sm:h-[240px]
+            md:h-64
+            object-cover
+            object-center
+          "
+        />
 
-                <div
-                  className="
-                    rounded-2xl
-                    sm:rounded-3xl
-                    overflow-hidden
-                    shadow-lg
-                    bg-white
-                    border
-                    border-gray-100
-                    h-[320px]
-                    sm:h-[350px]
-                    md:h-[420px]
-                    flex
-                    flex-col
-                  "
-                >
+        <div className="flex-1 flex items-center justify-center p-5">
+          <h3
+            className="
+              text-center
+              text-lg
+              sm:text-xl
+              md:text-2xl
+              font-bold
+              leading-snug
+            "
+          >
+            {item.title}
+          </h3>
+        </div>
 
-                  {/* Image */}
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="
-                      w-full
-                      h-48
-                      sm:h-56
-                      md:h-64
-                      object-cover
-                      object-center
-                    "
-                  />
+      </div>
 
-                  {/* Title */}
-                  <div
-                    className="
-                      flex-1
-                      flex
-                      items-center
-                      justify-center
-                      p-4
-                      sm:p-5
-                    "
-                  >
-                    <h3
-                      className="
-                        text-center
-                        text-base
-                        sm:text-lg
-                        md:text-2xl
-                        font-bold
-                        leading-snug
-                      "
-                    >
-                      {item.title}
-                    </h3>
-                  </div>
-
-                </div>
-
-              </div>
-
-            ))}
-
-          </Slider>
+    </div>
+  ))}
+</Slider>
 
         </div>
 
