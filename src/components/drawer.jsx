@@ -56,7 +56,7 @@ const Drawer = ({ isDrawerOpen, closeDrawer }) => {
       icon: faGear,
     },
     {
-      name: "Trading",
+      name: "Industrail Trading",
       path: "/trading",
       icon: faBox,
     },
