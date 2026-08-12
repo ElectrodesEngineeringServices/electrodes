@@ -14,6 +14,9 @@ import spanal3 from "../assets/img/spanal3.jpg";
 import earthing1 from "../assets/img/earth.jpeg";
 import earthing2 from "../assets/img/earthing2.jpeg";
 import earthing3 from "../assets/img/earthing3.jpeg";
+import cctv from "../assets/img/cctv.jpg";
+import cctv2 from "../assets/img/cctv2.jpg";
+import cctv3 from "../assets/img/cctv3.jpg";
 
 const Electrical = () => {
   return (
@@ -153,6 +156,34 @@ const Electrical = () => {
       }
 
       images={[earthing1, earthing2, earthing3]}
+    />
+
+  </div>
+
+</section>
+<section className="bg-gray-50">
+
+  <div className="max-w-[1500px] mx-auto px-6">
+
+    <ImgComponent
+
+      heading="CCTV Surveillance & Security Systems"
+
+      mainParagraph="Electrodes Engineering Services provides comprehensive CCTV surveillance and security solutions for commercial, industrial, residential, and high-security facilities. Our services include system design, supply, installation, configuration, testing, and maintenance of reliable surveillance systems to enhance security, monitoring, and asset protection."
+
+      listComponent={
+        <ul className="list-disc ml-6 space-y-2">
+          <li>IP & Analog CCTV Camera Systems</li>
+          <li>High-Definition & Night Vision Cameras</li>
+          <li>Network Video Recorder (NVR) Systems</li>
+          <li>DVR-Based Surveillance Systems</li>
+          <li>Remote Monitoring & Mobile Access</li>
+          <li>CCTV Installation, Testing & Maintenance</li>
+        </ul>
+      }
+
+      images={[cctv, cctv2, cctv3]}
+
     />
 
   </div>
