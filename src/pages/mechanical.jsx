@@ -24,9 +24,9 @@ import bollard1 from "../assets/img/hydulic.jpeg";
 import bollard2 from "../assets/img/hydrulic2.jpeg";
 import bollard3 from "../assets/img/hydrulic3.jpeg";
 
-import access1 from "../assets/img/security1.jpeg";
-import access2 from "../assets/img/security2.jpeg";
-import access3 from "../assets/img/security3.jpeg";
+import access1 from "../assets/img/pole.jpeg";
+import access2 from "../assets/img/pole2.jpeg";
+import access3 from "../assets/img/pole3.jpg";
 
 const Mechanical = () => {
 
@@ -245,6 +245,31 @@ From design and engineering to installation, testing and commissioning, we deliv
           <li>Face Recognition Attendance Systems</li>
           <li>Visitor Management Solutions</li>
           
+        </ul>
+      }
+
+      images={[access1, access2, access3]}
+    />
+
+  </div>
+
+</section>
+<section className="bg-white">
+
+  <div className="max-w-[1500px] mx-auto px-6">
+
+    <ImgComponent
+      heading="High Mast Pole"
+
+      mainParagraph="Electrodes Engineering Services provides complete High Mast Pole solutions for industrial, commercial, infrastructure, and outdoor lighting projects. Our services include the supply, installation, testing, and commissioning of high mast lighting systems designed to provide reliable, uniform, and energy-efficient illumination for large outdoor areas."
+
+      listComponent={
+        <ul className="list-disc ml-6 space-y-2">
+          <li>High Mast Pole Supply & Installation</li>
+          <li>High-Performance LED Flood Lighting</li>
+          <li>Raising & Lowering Lighting Systems</li>
+          <li>Outdoor & Industrial Area Lighting</li>
+          <li>Testing, Commissioning & Maintenance</li>
         </ul>
       }
 

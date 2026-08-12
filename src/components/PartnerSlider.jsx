@@ -11,6 +11,7 @@ import Img7 from "../assets/img/slider7.jpeg";
 import Img8 from "../assets/img/slider8.jpeg";
 import Img10 from "../assets/img/slider10.jpeg";
 import Img11 from "../assets/img/slider5.jpeg";
+import Img12 from "../assets/img/pole.jpeg";
 
 const data = [
   { image: Img1, title: "Low Voltage (LV) Electrical Switchgear" },
@@ -23,6 +24,7 @@ const data = [
   { image: Img8, title: "Hydraulic Bollard System 12K" },
   { image: Img10, title: "MDB" },
   { image: Img11, title: "FM-200 System" },
+  { image: Img12, title: "High Mast Pole" },
 ];
 
 const PartnerSlider = () => {
@@ -76,14 +78,14 @@ const PartnerSlider = () => {
   // PREVIOUS
   // ==============================
   const prevSlide = () => {
-    setCurrentIndex((prev) => {
-      if (prev <= 0) {
-        return maxIndex;
-      }
+  setCurrentIndex((prev) => {
+    if (prev <= 0) {
+      return prev;
+    }
 
-      return prev - 1;
-    });
-  };
+    return prev - 1;
+  });
+};
 
   // ==============================
   // AUTO SLIDE

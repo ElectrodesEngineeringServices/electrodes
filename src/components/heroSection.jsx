@@ -173,7 +173,7 @@ const HeroSection = () => {
                     "
                   >
 
-                    {/* Mobile par upar, desktop par center */}
+                    {/* Mobile , desktop  */}
                    <div
   className="
     max-w-3xl

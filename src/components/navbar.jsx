@@ -29,7 +29,7 @@ const Navbar = () => {
     { id: 2, name: "About Us", path: "/about" },
     { id: 3, name: "Electrical", path: "/electrical" },
     { id: 4, name: "Mechanical", path: "/mechanical" },
-    { id: 5, name: "Trading", path: "/trading" },
+    { id: 5, name: "Industrial Trading", path: "/trading" },
   ];
 
   return (

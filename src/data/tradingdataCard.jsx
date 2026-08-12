@@ -87,7 +87,7 @@ const tradingdataCard = [
   {
     image: pic12,
     name: " Panel breakers MCB,MCC, ACB ",
-    description: "We supply and install premium-quality Panel breakers MCB,MCC, ACB, providing secure mounting, structural support, and reliable performance for electrical panels and switchgear systems.",
+    description: "We supply and install premium-quality Panel breakers MCB,MCCB, ACB, providing secure mounting, structural support, and reliable performance for electrical panels and switchgear systems.",
     link: "/trading",
   },
   { 

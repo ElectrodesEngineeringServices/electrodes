@@ -1,7 +1,7 @@
 import pic1 from "../assets/img/pic1m.jpg";
 import pic2 from "../assets/img/pic2e.jpg";
 import pic3 from "../assets/img/pic3p.jpg";
-import pic4 from "../assets/img/pic4t.jpg";
+import pic4 from "../assets/img/industrail trading.jpeg";
 
 const cardDataHome = [
   {
@@ -19,8 +19,8 @@ const cardDataHome = [
   
   {
     image: pic4,
-    name: "Trading",
-    description: "Industrial trading solutions.",
+    name: "Industrail Trading",
+    description: "Reliable industrial trading solutions.",
     link: "/trading",
   },
 ];
